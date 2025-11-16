@@ -1,0 +1,33 @@
+# LaTeX build files
+*.aux
+*.log
+*.dvi
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.idx
+*.ilg
+*.ind
+
+# PDF output (コメントアウトを外すとPDFも追跡できます)
+# *.pdf
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+

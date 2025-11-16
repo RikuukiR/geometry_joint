@@ -1,0 +1,53 @@
+\documentclass[12pt,a4paper]{jsarticle}
+\usepackage[margin=20truemm]{geometry}
+
+% 節番号を「第1節」形式に
+\renewcommand{\thesection}{第\arabic{section}節}
+
+\input{preamble.tex}
+
+% subsection番号を「1.1」形式に（thesectionの影響を受けないように）
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+% 定理・定義番号をsubsectionごとにリセット
+\numberwithin{theorem}{subsection}
+\numberwithin{definition}{subsection}
+
+% 定理番号を「1.3.1」形式に
+\renewcommand{\thetheorem}{\arabic{section}.\arabic{subsection}.\arabic{theorem}}
+\renewcommand{\thedefinition}{\arabic{section}.\arabic{subsection}.\arabic{definition}}
+
+% カウンターの初期値を1に設定（0から始まるのを防ぐ）
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+
+% 式番号を「1.3.1」形式に（subsectionごとにリセット）
+\numberwithin{equation}{subsection}
+\renewcommand{\theequation}{\arabic{section}.\arabic{subsection}.\arabic{equation}}
+
+\title{【数学B】 統計的な推測}                % タイトル
+\author{}                     % 著者（空白でOK）
+\date{}                       % 日付（空白）
+
+\begin{document}
+\begin{center}
+{\LARGE 【数学】 第2章 統計的な推測}
+
+高等学校数学科用/104/数研/数B/711
+\end{center}
+
+% --- 著者と日付を右寄せで表示 ---
+\vspace{5mm}
+\hfill Riku Sugawara \\
+\hfill 11.2025
+
+% ========================================
+% 各セクションの読み込み
+% ========================================
+
+\input{sections/01_平行線と角.tex}
+\input{sections/02_多角形の内角と外角.tex}
+\input{sections/03_合同と相似.tex}
+
+\end{document}
+
