@@ -175,7 +175,7 @@
 % 解答を隠したい場合：\showanswerfalse
 \newif\ifshowanswer
 % ←ここを \showanswertrue に変更すると解答が表示されます
-\showanswertrue
+\showanswerfalse
 % 穴埋めコマンドの修正版（upLaTeX対応）
 \newcommand{\Blank}[2][3cm]{%
   ~%
@@ -187,40 +187,9 @@
   ~%
 }
 
-% 正解に合わせて自動で空欄を作る（em単位版）
-% 使用法: \fitblank[答え]{幅} または \fitblank{幅}（答えなしの場合）
-% 太文字版: \fitblankbf[答え]{幅}
+% 正解に合わせて自動で空欄を作る（em単位版）- 太字表示に統一、青字で表示
+% 使用法: \fitblank[答え]{幅}
 \newcommand{\fitblank}[2][\relax]{%
-  \ifx#1\relax
-    % 答えが指定されていない場合（従来の使用法）
-    \underline{\hspace*{#2em}}%
-  \else
-    % 答えが指定されている場合
-    \ifshowanswer
-      \underline{\hspace{1.5em}{\color{blue}#1}\hspace{1.5em}}%
-    \else
-      \underline{\hspace*{#2em}}%
-    \fi
-  \fi
-}
-
-% 太文字版の空欄コマンド
-\newcommand{\fitblankbf}[2][\relax]{%
-  \ifx#1\relax
-    % 答えが指定されていない場合（従来の使用法）
-    \underline{\hspace*{#2em}}%
-  \else
-    % 答えが指定されている場合
-    \ifshowanswer
-      \underline{\hspace{1.5em}{\color{blue}\textbf{#1}}\hspace{1.5em}}%
-    \else
-      \underline{\hspace*{#2em}}%
-    \fi
-  \fi
-}
-
-% 数式と文字の両方を太字にするコマンド
-\newcommand{\fitblankbold}[2][\relax]{%
   \ifx#1\relax
     % 答えが指定されていない場合（従来の使用法）
     \underline{\hspace*{#2em}}%
@@ -233,6 +202,24 @@
     \fi
   \fi
 }
+
+% 太文字版の空欄コマンド（数式と文字の両方に対応、青字で表示）
+% 使用法: \fitblankbf[答え]{幅} - 青字で表示
+%        {\color{red}\fitblankbf[答え]{幅}} - 色を上書き（赤など）
+\newcommand{\fitblankbf}[2][\relax]{%
+  \ifx#1\relax
+    % 答えが指定されていない場合（従来の使用法）
+    \underline{\hspace*{#2em}}%
+  \else
+    % 答えが指定されている場合
+    \ifshowanswer
+      \underline{\hspace{1.5em}{\color{blue}\ensuremath{\bm{#1}}}\hspace{1.5em}}%
+    \else
+      \underline{\hspace*{#2em}}%
+    \fi
+  \fi
+}
+
 
 % ========================================
 % tcolorbox環境（背景パターンで区別）
