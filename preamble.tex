@@ -197,7 +197,7 @@
   \else
     % 答えが指定されている場合
     \ifshowanswer
-      \underline{\makebox[#2em][c]{#1}}%
+      \underline{\hspace{1.5em}{\color{blue}#1}\hspace{1.5em}}%
     \else
       \underline{\hspace*{#2em}}%
     \fi
@@ -212,7 +212,7 @@
   \else
     % 答えが指定されている場合
     \ifshowanswer
-      \underline{\makebox[#2em][c]{\textbf{#1}}}%
+      \underline{\hspace{1.5em}{\color{blue}\textbf{#1}}\hspace{1.5em}}%
     \else
       \underline{\hspace*{#2em}}%
     \fi
@@ -227,7 +227,7 @@
   \else
     % 答えが指定されている場合
     \ifshowanswer
-      \underline{\makebox[#2em][c]{\boldmath\textbf{#1}}}%
+      \underline{\hspace{1.5em}{\color{blue}\ensuremath{\bm{#1}}}\hspace{1.5em}}%
     \else
       \underline{\hspace*{#2em}}%
     \fi
